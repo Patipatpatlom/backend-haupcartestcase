@@ -1,0 +1,20 @@
+generator client {
+  provider = "prisma-client-js"
+  output   = "../generated/prisma"
+}
+
+datasource db {
+  provider = "mysql"
+}
+
+model Car {
+  id           Int      @id @default(autoincrement())
+  licensePlate String   @unique @map("license_plate") @db.VarChar(50)
+  brand        String   @db.VarChar(50)
+  carModel     String   @map("model") @db.VarChar(50)
+  remarks      String?  @db.Text
+  createdAt    DateTime @default(now()) @map("created_at") @db.Timestamp(0)
+  updatedAt    DateTime @default(now()) @updatedAt @map("updated_at") @db.Timestamp(0)
+
+  @@map("cars")
+}
