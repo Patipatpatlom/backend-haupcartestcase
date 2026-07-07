@@ -12,7 +12,7 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
 // Routes
-app.use('/api', routes);
+app.use('/', routes);
 
 // 404 Handler
 app.use((req, res, next) => {

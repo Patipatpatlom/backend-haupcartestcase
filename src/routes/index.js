@@ -1,8 +1,13 @@
 const express = require('express');
-const homeController = require('../controllers/home.controller');
+const carController = require('../controllers/car.controller');
 
 const router = express.Router();
 
-router.get('/', homeController.getHome);
+router.post('/cars', carController.create);
+router.get('/cars', carController.getAll);
+router.put('/cars/:id', carController.update);
+router.delete('/cars/:id', carController.delete);
+router.get('/cars/:id', carController.getById);
+
 
 module.exports = router;
